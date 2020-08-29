@@ -6,11 +6,12 @@ import javax.annotation.Resource;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Service;
 
 import com.jd.gallery.user.service.userService;
 import com.jd.gallery.user.vo.userVO;
 
-@Repository
+@Service("userService")
 public class userServiceImpl implements userService{
 	
 	@Resource(name="sqlSessoinTemplate")

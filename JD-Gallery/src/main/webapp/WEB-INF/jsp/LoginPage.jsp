@@ -6,17 +6,30 @@
 <title>로그인페이지</title>
 	<link href="/resources/static/css/kakao_login_style.css" rel="stylesheet" type="text/css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-	<script>
+	<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<script>
 // $(function() {
-// 	//id가 inputTag 인 태그를 클릭하면 동작해요!
+	//id가 inputTag 인 태그를 클릭하면 동작해요!
 // 	$("#inputTag").click(function() {
 // 		alert('아직은 준비가...');
 // 	});
 // })
 </script>
+
+<script type="text/javascript">
+function fn_login(){
+	var inputId = $("#email").val();
+	var inputPw = $("#password").val();
+	
+	alert("로그인 : " + inputId + " , " + inputPw);
+}
+
+</script>
+
+
 </head>
 <body>
-    <form name="loginForm" action="login.do" method="POST">
+    <form:form id="loginForm" action="/login.do" method="POST">
         <svg id="ryan" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
             <path d="M0,150 C0,65 120,65 120,150" fill="#e0a243" stroke="#000" stroke-width="2.5" />
             <g class="ears">
@@ -39,10 +52,12 @@
             </g>
             <path d="M40,105 C10,140 110,140 80,105 L80,105 L70,111 L60,105 L50,111 L40,105" fill="#fff" />
         </svg>
-		<input type="text" placeholder="email@domain.com">
-        <input type="password" placeholder="Password" name="password">
-		<input type="submit" value="로그인" id="inputTag">
-    </form>
+		<input type="text" placeholder="email@domain.com" id="email">
+        <input type="password" placeholder="Password" id="password">
+		<input type="button" value="로그인" onclick="fn_login()">
+		<button type="submit">submit</button>
+    </form:form>
+    
     <script src="/resources/static/js/kakao_login_script.js"></script>
 </body>
 </html>
